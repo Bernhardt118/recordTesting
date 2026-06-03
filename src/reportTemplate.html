@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; color: #333; }
+        h1 { color: #0056b3; border-bottom: 2px solid #0056b3; padding-bottom: 5px; }
+        .metric-box { background: #f4f6f9; padding: 15px; border-radius: 5px; display: inline-block; margin-right: 15px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+
+    <h1>{{ title }}</h1>
+    <p>Generated on: <strong>{{ date }}</strong></p>
+    <p>{{ pass }}</p>
+    <h2>Test Results for {{ report }} Endpoint</h2>
+    <table>
+        <tr>
+            <th>Test</th>
+            <th>Result</th>
+        </tr>
+        {% for row in items %}
+        <tr>
+            <td>{{ row.name }}</td>
+            <td>{{ row.result }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <table>
+        <tr>
+            <th>List</th>
+            <th>Sample</th>
+        </tr>
+        {% for row in itemSamples %}
+        <tr>
+            <td>{{ row.name }}</td>
+            <td>{{ row.result }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <div style="text-align: center;">
+        <img src="data:image/png;base64,{{ image_base64 }}" alt="KHStruct" style="max-width: 100%; max-height: 700px; width: auto; height: auto; display: inline-block; margin-top: 10px;"/>
+    </div>
+
+</body>
+</html>
